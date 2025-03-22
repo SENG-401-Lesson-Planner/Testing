@@ -172,7 +172,37 @@ async function registerWithExistingUsernameTest(driver) {
     await driver.sleep(3000);
 }
 
+async function viewPastLessonsTest(driver) {
+    console.log("\n🔹 Running View History Test...");
+    await driver.get("https://lesso.help/login");
 
+    //Find the fields    
+    await driver.findElement(By.id("username")).sendKeys("username1");
+    await driver.findElement(By.id("password")).sendKeys("password1");
+    await driver.findElement(By.xpath("//button[@type='submit']")).click();
+    
+    await driver.wait(until.urlIs("https://lesso.help/"), 10000);
+    
+    console.log("Waiting for 3 seconds after reaching the home page...");
+    await driver.sleep(2000); // Wait for 3 seconds
+
+    let lessonPlansButton = await driver.findElement(By.id("history-button"));
+    await lessonPlansButton.click();
+
+    // Wait for redirect
+    await driver.wait(until.urlIs("https://lesso.help/history/"), 10000);
+
+    let currentURL = await driver.getCurrentUrl();
+    if (currentURL === "https://lesso.help/history/") {
+        console.log("✅ History Accessed. Test Passed.");
+    } else {
+        console.log("❌ History Not Accessed. Test Failed.");
+    }
+
+    //Pause before next test
+    await driver.sleep(3000); 
+
+}
 
 
 //Calls all of the tests in sequence.
@@ -185,7 +215,8 @@ async function registerWithExistingUsernameTest(driver) {
         // await registerEmptyPasswordTest(driver);
         // await registerEmptyConfirmPasswordTest(driver);
         //await registerWithFourCharacterUsernameTest(driver) Function should only be called once
-        await registerWithExistingUsernameTest(driver);
+        // await registerWithExistingUsernameTest(driver);
+        await viewPastLessonsTest(driver);
     } catch (error) {
         console.error("❌ Test encountered an error:", error);
     } finally {
