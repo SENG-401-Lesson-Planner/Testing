@@ -6,13 +6,20 @@
 
    Link to download Visual Studio Code: [Visual Studio Code Download](https://code.visualstudio.com/download)
 
-3. Open VSCode and open the "Test" folder * Create it if it is not there
-4. Input "npm init -y" in the terminal *This creates node_modules and json files
-5. Input "npm install selenium-webdriver mocha chromedriver" in the terminal. *This downloads the necessary dependencies in your package.json file
-6. Go to your package.json file and replace the value of the the "test" key under the "scripts" objects to "mocha".
+2. Open VSCode and open the "Test" folder \* Create it if it is not there
+3. Input "npm init -y" in the terminal \*This creates node_modules and json files
+4. Input "npm install selenium-webdriver mocha chromedriver" in the terminal. \*This downloads the necessary dependencies in your package.json file
+5. Go to your package.json file and replace the value of the the "test" key under the "scripts" objects to "mocha".
 
 # Usage
 
 1. To execute the tests, navigate to the test folder which contains the test file, in this case "test.js".
 2. Then go to your terminal and input "node test.js"
 3. It should start opening up the website and executing the tests. The results of the tests should be outputted in the terminal.
+
+# FOR DATABASE TESTING
+
+1. Input "npm init -y" in the terminal \*This creates node_modules and json files
+2. Go to your package.json file and replace the value of the the "test" key under the "scripts" objects to "mocha".
+3. Input "npm install chai@4.3.7 chai-http@4.4.0", this ensures chai and chai-http are compatible
+4. Run npx mocha dbtest.js
