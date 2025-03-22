@@ -8,8 +8,7 @@
 
 2. Open VSCode and open the "Test" folder \* Create it if it is not there
 3. Input "npm init -y" in the terminal \*This creates node_modules and json files
-4. Input "npm install selenium-webdriver mocha chromedriver" in the terminal. \*This downloads the necessary dependencies in your package.json file
-5. Go to your package.json file and replace the value of the the "test" key under the "scripts" objects to "mocha".
+4. Input "npm install selenium-webdriver chromedriver" in the terminal. \*This downloads the necessary dependencies in your package.json file
 
 # Usage
 
