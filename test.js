@@ -115,9 +115,9 @@ async function registerWithFourCharacterUsernameTest(driver) {
     await driver.get("https://lesso.help/register");
 
     //Find the fields
-    await driver.findElement(By.id("username")).sendKeys("four");
-    await driver.findElement(By.id("password")).sendKeys("fourpassword");
-    await driver.findElement(By.id("confirmPassword")).sendKeys("fourpassword");
+    await driver.findElement(By.id("username")).sendKeys("new2");
+    await driver.findElement(By.id("password")).sendKeys("new2");
+    await driver.findElement(By.id("confirmPassword")).sendKeys("new2");
     let submitButton = await driver.findElement(By.xpath("//button[@type='submit']"));
 
     await submitButton.click();
