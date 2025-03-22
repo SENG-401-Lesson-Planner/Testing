@@ -84,7 +84,7 @@ describe('Test Register)', () => {
     it('should return a 200 status and a token for successful registration', (done) => {
         chai.request(server)
             .post('/account/register')
-            .send({ username: 'abac12223', password: 'abc1234' }) // IMPORTANT NOTE: REGISTER TESTS WILL FAIL IF CREDENTIALS ALREADY EXIST
+            .send({ username: 'abac12223556', password: 'abc123456' }) // IMPORTANT NOTE: REGISTER TESTS WILL FAIL IF CREDENTIALS ALREADY EXIST
             .end((err, res) => {
                 res.should.have.status(200); // Check for 200 status
                 done();
