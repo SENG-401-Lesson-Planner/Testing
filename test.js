@@ -205,40 +205,6 @@ async function viewPastLessonsTest(driver) {
 }
 
 async function generateLessonTest(driver) {
-    console.log("\n🔹 Running View History Test...");
-    await driver.get("https://lesso.help/plan/");
-
-    //Find the fields    
-    await driver.findElement(By.id("lesson-plan")).sendKeys("Volcanoes");
-    await driver.executeScript("arguments[0].value = arguments[1]; arguments[0].dispatchEvent(new Event('input'));", 
-    await driver.findElement(By.xpath("//input[@type='range']")), "7");
-    await driver.findElement(By.xpath("//button[text()='Science']")).click();
-    await driver.findElement(By.id("time")).sendKeys("30");
-
-    await driver.wait(until.urlIs("https://lesso.help/"), 10000);
-    
-    console.log("Waiting for 3 seconds after reaching the home page...");
-    await driver.sleep(2000); //Wait for 3 seconds
-
-    let lessonPlansButton = await driver.findElement(By.id("history-button"));
-    await lessonPlansButton.click();
-
-    //Wait for redirect
-    await driver.wait(until.urlIs("https://lesso.help/history/"), 10000);
-
-    let currentURL = await driver.getCurrentUrl();
-    if (currentURL === "https://lesso.help/history/") {
-        console.log("✅ History Accessed. Test Passed.");
-    } else {
-        console.log("❌ History Not Accessed. Test Failed.");
-    }
-
-    //Pause before next test
-    await driver.sleep(3000); 
-
-}
-
-async function generateLessonTest(driver) {
     console.log("\n🔹 Running Generate Lesson Test...");
     await driver.get("https://lesso.help/history");
 
